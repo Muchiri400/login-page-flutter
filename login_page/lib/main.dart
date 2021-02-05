@@ -33,13 +33,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  //thi s class is responsible for defining our MyHomePage widget state.
+  //this class is responsible for defining our MyHomePage widget state.
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
   //here we define the custom text style to use in our ui elements.
 
   @override
   Widget build(BuildContext context) {
-    final emailField = TextField(
+
+
+    final emailField = TextField(  // the word final simply tells our app that the object won;t be modified throughht the app.
       obscureText: false,
       style: style,
       decoration: InputDecoration(
@@ -77,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: Center(
         child: Container(
-          color: Colors.white,
+          color: Colors.teal[100],
           child: Padding(
             padding: const EdgeInsets.all(36.0),
             child: Column(
