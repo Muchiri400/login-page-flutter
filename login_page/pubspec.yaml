@@ -30,7 +30,7 @@ flutter:
 
   
   assets:
-    - logo.png
+    - log-in.png
     
 
   fonts:
