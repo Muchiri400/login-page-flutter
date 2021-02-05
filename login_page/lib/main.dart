@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  //this is the ain entry for our app.
+  //this is the entry for our app.
   runApp(
       MyApp()); //we are actually running the runApp function inside the main() function.
 } //This function makes the myApp widget the root of the widget tree.
@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Login Ui',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key key, this.title})
+      : super(key: key); //this widget is the home page of our application.
 
   final String title;
 
@@ -31,7 +33,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  //thi s class is responsible for defining our MyHomePage widget state.
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
+  //here we define the custom text style to use in our ui elements.
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     final passwordField = TextField(
-      obscureText: false,
+      obscureText: true,
       style: style,
       decoration: InputDecoration(
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
@@ -55,14 +59,18 @@ class _MyHomePageState extends State<MyHomePage> {
               OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
     );
 
-    final loginButton = Material(
+    final loginButon = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(30.0),
       color: Color(0xff01A0C7),
-      child: Text(
-        'Login',
-        textAlign: TextAlign.center,
-        style: style.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+      child: MaterialButton(
+        minWidth: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        onPressed: () {},
+        child: Text("Login",
+            textAlign: TextAlign.center,
+            style: style.copyWith(
+                color: Colors.white, fontWeight: FontWeight.bold)),
       ),
     );
 
@@ -88,6 +96,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(height: 25.0),
                 passwordField,
                 SizedBox(height: 15.0),
+                SizedBox(
+                  height: 35.0,
+                ),
+                loginButon,
+                SizedBox(
+                  height: 15.0,
+                ),
               ],
             ),
           ),
